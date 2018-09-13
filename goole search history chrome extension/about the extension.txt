@@ -1,0 +1,4 @@
+The extension is aimed at saving and reminding users of their last search page on google
+1. Saving a user's last searched page on google
+	- Recover from History all visits to google search pages
+	- Display them in a Pop-up

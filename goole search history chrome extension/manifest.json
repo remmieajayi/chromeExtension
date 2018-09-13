@@ -1,0 +1,40 @@
+{
+    "name": "Google Search Reminder",
+    "version": "1.0.0",
+    "description": "Helps users to save and remember last search pages on google",
+    "permissions": [
+        "history",
+        "activeTab",
+        "webNavigation",
+        "tabs",
+        "http://*/",
+        "https://*/",
+        "storage",
+        "*://www.google.com/*",
+        "<all_urls>"
+    ],
+    "content_scripts" : [
+        {
+        "matches": ["http://*/*", "https://*/*"],
+        "css" : ["sidebarStyle.css"],
+        "js": ["sidebar.js"]
+        }
+    ],
+     "background": {
+        "scripts": ["backgroundListener.js"], 
+        "persistence" : false
+    }, 
+    "browser_action": {
+        "default_title": "My Google Search Reminder",
+        "default_popup": "history.html"
+    },
+    "web_accessible_resources": [
+        "sidebar.html",
+        "sidebarStyle.css"
+    ],
+    "manifest_version": 2,
+      "chrome_url_overrides" : {
+    "newtab": "new_tab_page/index.html"
+  },
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
+}
