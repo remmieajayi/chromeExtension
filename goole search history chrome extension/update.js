@@ -22,27 +22,32 @@ function updateGoogleHistory(){
 };
 
 function getUpdate(urlArray,targetDiv){
-    let ul = document.createElement('ul'), header =  new Date(parseInt(urlArray[0].lastVisitTime)).toDateString(); h3 = document.createElement('h3'), headerContent = document.createTextNode(header);
+    generateHeaderDate = (dateItem)=>{
+            let dateString
+            dateItem.lastVisitTime ?  dateString = new Date(parseInt(dateItem.lastVisitTime)).toDateString() : dateString = new Date(parseInt(dateItem.date)).toDateString()
+            return dateString
+    }
+    let ul = document.createElement('ul'), header = generateHeaderDate(urlArray[0]); h3 = document.createElement('h3'), headerContent = document.createTextNode(header);
     h3.appendChild(headerContent)
     ul.appendChild(h3)
     urlArray.forEach((urlobj, i, arr)=>{
 
 			createLi(urlobj)
     function createLi(urlobj){
-let itemDate = new Date(urlobj.lastVisitTime).toDateString();
+let itemDate = generateHeaderDate(urlobj) ;
 console.log(itemDate)
         if (itemDate !== header){
 	console.log('starting new list')
         if (ul.children.length == 0){
 console.log('ul has no children, so chaging the ul,date.. automatically')
 			console.log(ul.children.length)
-            ul = document.createElement('ul'); header =  new Date(parseInt(urlArray[0].lastVisitTime)).toDateString() ;  h3 = document.createElement('h3'); headerContent = document.createTextNode(header);
+            ul = document.createElement('ul'); header =  generateHeaderDate(urlobj) ;  h3 = document.createElement('h3'); headerContent = document.createTextNode(header);
             h3.appendChild(headerContent);
             ul.appendChild(h3);
         }else{
 		console.log('appennding ul to div')
             targetDiv.appendChild(ul);
-             ul = document.createElement('ul'); header =  new Date(parseInt(urlArray[0].lastVisitTime)).toDateString(); h3 = document.createElement('h3'); headerContent = document.createTextNode(header);
+             ul = document.createElement('ul'); header =  generateHeaderDate(urlobj) ; h3 = document.createElement('h3'); headerContent = document.createTextNode(header);
             h3.appendChild(headerContent);
             ul.appendChild(h3);
         }
@@ -57,7 +62,7 @@ console.log('ul has no children, so chaging the ul,date.. automatically')
         if(i === arr.length-1 ){
 		console.log('appennding ul to last div')
             targetDiv.appendChild(ul);
-             ul = document.createElement('ul'); header =  new Date(parseInt(urlArray[0].lastVisitTime)).toDateString(); h3 = document.createElement('h3'); headerContent = document.createTextNode(header);
+             ul = document.createElement('ul'); header =  generateHeaderDate(urlobj) ; h3 = document.createElement('h3'); headerContent = document.createTextNode(header);
             h3.appendChild(headerContent);
             ul.appendChild(h3);
 }

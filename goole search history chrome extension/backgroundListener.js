@@ -79,14 +79,14 @@ console.log('ul has no children, so chaging the ul,date.. automatically')
 }
     }
     })
-    
+
 }
 chrome.runtime.onStartup.addListener(function(){
     let sidebarUrl = chrome.extension.getURL('sidebar.html')
 let iframe = document.createElement('iframe'), sourceAttribute = document.createAttribute('src'), id = document.createAttribute('id');
 sourceAttribute.value = sidebarUrl; id.value = 'customSearchSaverSidebar97'; iframe.setAttributeNode(sourceAttribute);  iframe.setAttributeNode(id)
 document.getElementsByTagName('html')[0].appendChild(iframe)
-}); 
+});
 
 chrome.tabs.onCreated.addListener(function(Tab){
     chrome.tabs.executeScript(Tab.id,{code: 'alert(5)'})

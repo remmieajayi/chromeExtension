@@ -19,10 +19,11 @@
               font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
               background-color:  rgb(248, 249, 250);
               -webkit-transition: all 0.3s ease-in-out;
+              transition: all 0.3s ease-in-out;
               height: 700px;
           }
           header{
-              background-color: rgb(51, 103, 214);
+              background-color: rgb(40, 55, 88);
               width: 100%;
               color: white;
               position: fixed;
@@ -32,8 +33,22 @@
               cursor: pointer;
           }
           .logo{
-              display: block;
+              display: flex;
               height: 100px;
+              justify-content: center;
+              align-items: center;
+          }
+          .logo-text{
+              display: inline-block;
+              padding: 10px;
+              font-size: 15px;
+              font-weight:  600 ;
+          }
+          .g-logo{
+              padding-right: 20px;
+              color: rgb(255,190,000);
+              height: 20px;
+              width: 20px;
           }
           #nav ul{
              margin: auto;
@@ -58,16 +73,7 @@
               border-bottom: 4px solid grey ;
               border-radius: 2px;
           }
-          .logo-text{
-              display: inline-block;
-              padding: 30px 65px;
-              font-size: 15px;
-              font-weight:  600 ;
-          }
-          .g-logo{
-              padding-right: 20px;
-              color: rgb(255,190,000);
-          }
+         
           div ul{
               list-style-type: none;
               padding-left: 0;
@@ -99,6 +105,7 @@
               position: absolute;
              top: 130px;
               overflow: hidden;
+              width: 100%;
           }
           #googleReferred{
               -webkit-transition: all 0.11s linear;
@@ -107,6 +114,7 @@
               left: 400px;
               height: 0;
               overflow: hidden;
+              width: 100%;
               
           }
           .swipe-left{
@@ -134,7 +142,7 @@
     
         <header>
         <nav id='nav'>
-         <span class='logo'> <span class="logo-text"><span class="fa fa-google g-logo"></span>Google history manager</span></span>   
+         <span class='logo'> <img src ="assets/icons/logo.png" class="fa g-logo"><span class = 'logo-text'>Google history manager</span></span></span>   
             <ul>
                 <li> <a class="active-link" id='searchLink'> Google Seach History </a></li>
                 <li> <a id='visitedFromGoogleLink'> Visited from Googole</a></li>

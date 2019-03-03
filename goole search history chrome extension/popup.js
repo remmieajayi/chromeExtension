@@ -1,5 +1,5 @@
 let searchLink = document.getElementById('searchLink'), googleReferredDiv = document.getElementById('googleReferred'), fromGooglrLink = document.getElementById('visitedFromGoogleLink'), googleHistoryDiv= document.getElementById('googleHistory')
-       searchLink.addEventListener('click',function(){
+    searchLink.addEventListener('click',function(){
            
            googleReferredDiv.style.left = '400px'
            googleHistoryDiv.style.right = '0';
