@@ -83,6 +83,13 @@
           }
           div li{
               padding: 17px 25px;
+              display: flex;
+              justify-content: left;
+              align-items: center;
+          }
+          div li img{
+              padding-right: 20px;
+              height: 12px;
           }
           div h3{
               margin: 0;
@@ -97,6 +104,7 @@
               font-weight: 600;
               -webkit-transition: all 0.25s ease-in-out;
           }
+          
           div a:hover{
               color: rgb(255,190,000);
           }
@@ -135,6 +143,26 @@
           .referred-move-rigth{
               left: 400px;
           }
+
+          /* width */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+         background: #f1f1f1; 
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888; 
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
       </style>
         
     </head>
