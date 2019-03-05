@@ -13,13 +13,6 @@
         "*://www.google.com/*",
         "<all_urls>"
     ],
-    "content_scripts" : [
-        {
-        "matches": ["http://*/*", "https://*/*"],
-        "css" : ["sidebarStyle.css"],
-        "js": ["sidebar.js"]
-        }
-    ],
      "background": {
         "scripts": ["backgroundListener.js"], 
         "persistence" : false

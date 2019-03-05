@@ -8,7 +8,7 @@
   // get google visted urls from chrome's local storage && update required div
   chrome.storage.local.get(["googleVisitedUrls"], function(urlObject) {
     console.log(urlObject);
-    getUpdate(urlObject.googleVisitedUrls, googleReferredDiv);
+    getUpdate(urlObject.googleVisitedUrls.reverse(), googleReferredDiv);
   });
 
   // refresh visited from google div when navigated to
@@ -91,7 +91,7 @@
         (title = document.createTextNode(urlobj.title)),
           (faviconUri = urlobj.url.includes("https://www.google.com/search?q")
             ? "../assets/icons/googleSearch.png"
-            : null);
+            : `https://www.google.com/s2/favicons?domain=${urlobj.url}`);
         favsrc.value = faviconUri;
         img.setAttributeNode(favsrc);
         href.value = urlobj.url;
