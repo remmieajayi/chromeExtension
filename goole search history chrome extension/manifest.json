@@ -19,7 +19,7 @@
     }, 
     "browser_action": {
         "default_title": "My Google Search Reminder",
-        "default_popup": "history.html"
+        "default_popup": "popup.html"
     },
     "web_accessible_resources": [
         "sidebar.html",

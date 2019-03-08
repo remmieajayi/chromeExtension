@@ -1,10 +1,12 @@
 chrome.tabs.onUpdated.addListener(function(tab, info, tabinfo){
+    if(tabinfo.url.includes("chrome:// ") || tabinfo.url.includes("chrome-extension:// ")) return
   if(info.status === 'loading'){
         console.log(info)
         presentDate = Date.now
   chrome.runtime.sendMessage({action: "get referrer", tabId: tab.toString(), title: tabinfo.title, dateVistied : Date.now().toString(), url: tabinfo.url});
         chrome.tabs.executeScript(tab, {code: 'var x = {referrer : document.referrer, title: document.title };  x;'}, function(result){
             console.log(result)
+            if(!result) return
             if( result[0].referrer.includes('https://www.google.com') ){
                   console.log('result was referred from ' + result[0].referrer);
                     chrome.storage.local.get(['googleVisitedUrls'], function(urlobject){
@@ -35,52 +37,8 @@ chrome.tabs.onUpdated.addListener(function(tab, info, tabinfo){
   console.log('message sent');
     }  
 });
-function update(urlArrar){
-    let googleReferredDiv = document.getElementById('googleReferred')
-    let ul = document.createElement('ul'), header = new Date(parseInt(urlArrar[0].date)).toDateString(), h3 = document.createElement('h3'), headerContent = document.createTextNode(header);
-    h3.appendChild(headerContent)
-    ul.appendChild(h3)
-// 	googleReferredDiv.appendChild(ul)
-    urlArrar.forEach((urlobj, i, arr)=>{
 
-			createLi(urlobj)
-    function createLi(urlobj){
-let itemDate = new Date(parseInt(urlobj.date)).toDateString();
-console.log(itemDate)
-        if (itemDate !== header){
-	console.log('starting new list')
-        if (ul.children.length == 0){
-console.log('ul has no children, so chaging the ul,date.. automatically')
-			console.log(ul.children.length)
-            ul = document.createElement('ul'); header = new Date(parseInt(urlobj.date)).toDateString() ; h3 = document.createElement('h3'); headerContent = document.createTextNode(header);
-            h3.appendChild(headerContent);
-            ul.appendChild(h3);
-        }else{
-		console.log('appennding ul to div')
-            googleReferredDiv.appendChild(ul);
-             ul = document.createElement('ul'); header = new Date(parseInt(urlobj.date)).toDateString(); h3 = document.createElement('h3'); headerContent = document.createTextNode(header);
-            h3.appendChild(headerContent);
-            ul.appendChild(h3);
-        }
-        }
-	console.log('creating li')
-        let li = document.createElement('li'), a = document.createElement('a'), href = document.createAttribute('href'); title = document.createTextNode(urlobj.title)
-        href.value = urlobj.url; 
-        a.setAttributeNode(href);
-        a.appendChild(title);
-        li.appendChild(a);
-        ul.appendChild(li)
-        if(i === arr.length-1 ){
-		console.log('appennding ul to last div')
-            googleReferredDiv.appendChild(ul);
-             ul = document.createElement('ul'); header = new Date(parseInt(urlobj.date)).toDateString(); h3 = document.createElement('h3'); headerContent = document.createTextNode(header);
-            h3.appendChild(headerContent);
-            ul.appendChild(h3);
-}
-    }
-    })
 
-}
 
 
 

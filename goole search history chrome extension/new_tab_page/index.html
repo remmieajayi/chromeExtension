@@ -1,38 +1,42 @@
 <html>
-  <head> 
-      <link href="style.css" rel="stylesheet">
-      <meta charset="utf-8">
-      <title> New tab - Chrome </title>
-      <link rel="stylesheet" href="main.css">
-  </head>  
-    
-    <body>
-        <div id='blurred'>
-             
-        
-        
-        <div id='date_time'>
-            
-        <span id='time'> 11 : 59 PM</span><br>
-            <span id= 'date'> 13th March 2018</span>
+  <head>
+    <meta charset="utf-8" />
+    <title>New tab - Chrome</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body>
+    <div id="blurred">
+      <header>
+        <div id="logodiv">
+          <span id="logoText">
+            <span id="logoimage"> G </span> Google Search Manager
+          </span>
         </div>
-            <div id='mainContainer'>
-         <div id='googleHistory'>
-             <div class='scrollBar'>
-             <div class="slider"></div>
-             </div>
-                
-                </div>
-        <div id='googleReferred'>
-                <div class='scrollBar'>
-             <div class="slider"></div>
-                </div>  
+        <div id="date_time">
+          <span id="time"></span><br />
+          <span id="date"></span>
         </div>
-        
+      </header>
+
+      <div id="nav">
+        <ul>
+          <li class="active" id="searchLink">Search History</li>
+          <li id="historyLink">Visited from google History</li>
+        </ul>
+      </div>
+      <div id="mainContainer">
+        <div class="contentContainer">
+          <div id="googleHistory"></div>
         </div>
-       
+
+        <div class="contentContainer">
+          <div id="googleReferred"></div>
+        </div>
+      </div>
+    </div>
+
     <script src="main.js"></script>
-    </body>
-    
-    
+  </body>
 </html>
+.

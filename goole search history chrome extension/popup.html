@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Rubik|Comfortaa|Noto+Sans|Ubuntu" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/v4-shims.css">
+      <style>
+          html{
+              padding: 0;
+              width: 400px;
+              max-width: 400px !important;
+              overflow: hidden;
+              margin: 0;
+              -webkit-margin-end: -25px;
+          }
+          body{
+              margin: 0;
+              font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+              background-color:  rgb(248, 249, 250);
+              -webkit-transition: all 0.3s ease-in-out;
+              transition: all 0.3s ease-in-out;
+              height: 700px;
+          }
+          header{
+              background-color: rgb(40, 55, 88);
+              width: 100%;
+              color: white;
+              position: fixed;
+              z-index: 5;
+          }   
+          header a{
+              cursor: pointer;
+          }
+          .logo{
+              display: flex;
+              height: 100px;
+              justify-content: center;
+              align-items: center;
+          }
+          .logo-text{
+              display: inline-block;
+              padding: 10px;
+              font-size: 15px;
+              font-weight:  600 ;
+          }
+          .g-logo{
+              padding-right: 20px;
+              color: rgb(255,190,000);
+              height: 20px;
+              width: 20px;
+          }
+          #nav ul{
+             margin: auto;
+             height: 30px;
+             padding: 0;
+             width: fit-content;
+             font-size: 12.5px;
+             letter-spacing: .4px;
+             word-spacing: .9px;
+          }
+          #nav li{
+                  list-style-type: none;
+                  display: inline-block;
+                  height: 100%;
+          }
+          #nav li a{
+              display: block;
+              height: 100%;
+              padding: 0 15px;
+          }
+          .active-link{
+              border-bottom: 4px solid grey ;
+              border-radius: 2px;
+          }
+         
+          div ul{
+              list-style-type: none;
+              padding-left: 0;
+              margin: 0;
+              box-shadow: 0.5px 0.5px 4px silver;
+              background: white;
+          }
+          div li{
+              padding: 17px 25px;
+              display: flex;
+              justify-content: left;
+              align-items: center;
+          }
+          div li img{
+              padding-right: 20px;
+              height: 12px;
+          }
+          div h3{
+              margin: 0;
+              padding: 25px 25px;
+              background-color: rgb(248, 249, 250);
+              color: green;
+          }
+          div a{
+              text-decoration: none;
+              color: gray;
+              font-size: 13px;
+              font-weight: 600;
+              -webkit-transition: all 0.25s ease-in-out;
+          }
+          
+          div a:hover{
+              color: rgb(255,190,000);
+          }
+          #googleHistory{
+              -webkit-transition: all 0.1s linear;
+              position: absolute;
+             top: 130px;
+              overflow: hidden;
+              width: 100%;
+          }
+          #googleReferred{
+              -webkit-transition: all 0.11s linear;
+              position: absolute;
+              top: 130px;
+              left: 400px;
+              height: 0;
+              overflow: hidden;
+              width: 100%;
+              
+          }
+          .swipe-left{
+              margin-left: 400px !important;
+          }
+          .swipe-right{
+              margin-right: 400px !important;
+          }
+          .search-move-left{
+              right: 400px
+          }
+          .search-move-right{
+              right: 0;
+          }
+          .referred-move-left{
+              left: 0
+          }
+          .referred-move-rigth{
+              left: 400px;
+          }
+
+          /* width */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+         background: #f1f1f1; 
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888; 
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+      </style>
+        
+    </head>
+    <body>
+    
+        <header>
+        <nav id='nav'>
+         <span class='logo'> <img src ="assets/icons/logo.png" class="fa g-logo"><span class = 'logo-text'>Google history manager</span></span></span>   
+            <ul>
+                <li> <a class="active-link" id='searchLink'> Google Seach History </a></li>
+                <li> <a id='visitedFromGoogleLink'> Visited from Googole</a></li>
+            </ul>
+        </nav>
+        </header>
+        <div id='googleHistory'></div>
+        <div id='googleReferred'></div>
+      <button id="consoleHistory"></button>
+        <button id="googleLinkedActivator"></button>
+        
+        <script src='popupUpdate.js'> </script>
+        <script src='popup.js'></script>
+    </body>
+     
+  </html>
+ 
